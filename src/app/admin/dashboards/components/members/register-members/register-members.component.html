@@ -1,0 +1,78 @@
+
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Register Members</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="dashboard"><i class="zmdi zmdi-home"></i> dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">members</a></li>
+                        <li class="breadcrumb-item active">register</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">                
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>                                
+                </div>
+            </div>
+        </div>    
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="alert alert-warning" role="alert" *ngIf="error">
+                        <strong>Bootstrap</strong> Better check yourself, <a target="_blank" href="https://getbootstrap.com/docs/4.2/components/input-group/">View More</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
+                        </button>
+                    </div>
+                    <div class="card">
+                        <div class="body">
+                            <h1 class="card-inside-title">Register Member</h1>
+                            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                            <div class="row clearfix">
+                                <div class="col-sm-6 form-group">                                 
+                                    <input type="text" class="form-control" placeholder="firstname" ngModel name="firstname" />
+                                </div>
+                                <div class="col-sm-6 form-group">                                 
+                                    <input type="text" class="form-control" placeholder="lastname" ngModel name="lastname" />
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-6">
+                                    <div class="form-group">                                    
+                                        <input type="text" class="form-control" placeholder="phone number" ngModel name="phone_number" />                                   
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">                                   
+                                        <input type="text" class="form-control" placeholder="email" ngModel name="email" />                                    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control datetimepicker" placeholder="Date of Birth... yyyy/mm/dd" ngModel name="date_of_birth">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <select class="form-control show-tick" ngModel name="gender">
+                                        <option value="">-- select gender --</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <div class="col-sm-6 form-group">
+                                    <button type="submit" class="btn btn-primary">Register</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
