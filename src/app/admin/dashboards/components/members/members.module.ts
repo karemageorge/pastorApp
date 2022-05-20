@@ -7,15 +7,26 @@ import { UploadMembersComponent } from './upload-members/upload-members.componen
 import { ViewMembersComponent } from './view-members/view-members.component';
 
 import { MembersRoutingModule } from './members-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorServiceService } from '../../services/token-interceptor-service.service';
+import { TransactionsComponent } from './transactions/transactions.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 
 
 @NgModule({
-  declarations: [GroupMembersComponent, MembersComponent,RegisterMembersComponent,UploadMembersComponent,ViewMembersComponent],
+  declarations: [GroupMembersComponent, MembersComponent,RegisterMembersComponent,UploadMembersComponent,ViewMembersComponent, TransactionsComponent, SubscriptionsComponent],
   imports: [
     CommonModule,
     MembersRoutingModule,
-    FormsModule
-  ]
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorServiceService,
+    multi: true
+  }],
 })
 export class MembersModule { }

@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
-import { catchError, tap } from "rxjs/Operators";
+import { environment } from "src/environments/environment";
 // import { User } from "./user.model";
 
 interface AuthResponseData {
@@ -18,15 +18,21 @@ export class AuthService {
     constructor(private http : HttpClient){}
 
     // signup(name: string, email: string, password: string){
-    //     return this.http.post<AuthResponseData>('http://127.0.0.1:5000/churches/adminregister',{
+    //     return this.http.post<AuthResponseData>('http://nuru.sikika-ke.co.ke/churches/adminregister',{
     //         name: name,
     //         email: email,
     //         password: password
     //     })
     // }
 
-    login(email: string, password: string){
-        return this.http.post<AuthResponseData>('/pastors/login',{
+    loginpastor(email: string, password: string){
+        return this.http.post<AuthResponseData>(environment.base_url+'/pastors/login',{
+            email: email,
+            password: password
+        })
+    }
+    loginchurch(email: string, password: string){
+        return this.http.post<AuthResponseData>(environment.base_url+'/churches/login',{
             email: email,
             password: password
         })

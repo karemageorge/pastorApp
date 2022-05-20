@@ -6,6 +6,8 @@ import { RegisterGroupsComponent } from './register-groups/register-groups.compo
 import { ViewGroupsComponent } from './view-groups/view-groups.component';
 import { GroupsComponent } from './groups.component';
 import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorServiceService } from '../../services/token-interceptor-service.service';
 
 
 @NgModule({
@@ -14,6 +16,11 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     GroupsRoutingModule,
     FormsModule
-  ]
+  ],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorServiceService,
+    multi: true
+  }],
 })
 export class GroupsModule { }

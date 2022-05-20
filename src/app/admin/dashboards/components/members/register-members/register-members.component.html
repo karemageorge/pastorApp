@@ -58,18 +58,36 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <select class="form-control show-tick" ngModel name="gender">
+                                    <select class="form-control show-tick" ngModel name="gender" placeholder="---- select gender -----">
                                         <option value="">-- select gender --</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                     </select>
                                 </div>
-                                <br>
-                                <div class="col-sm-6 form-group">
-                                    <button type="submit" class="btn btn-primary">Register</button>
-                                </div>
                             </div>
+                            <br>
+                            <div class="row clearfix form-group">
+                                    <!-- <div class="col-sm-6 input-group">
+                                        <select class="form-control show-tick" ngModel name="group" >
+                                            <option value="">-- select group --</option>
+                                            <option [value]="group.name" *ngFor="let group of groups">{{group.name}}</option>
+                                        </select>
+                                    </div> -->
+                                    <br>
+                                    <div class="col-sm-6 form-group">
+                                    <button type="submit" class="btn btn-primary">Register</button>
+                                    </div>
+                            </div>
+                                
+                            
                             </form>
+
+                            <div class="alert alert-primary" role="alert" *ngIf="message">
+                                <span>{{message.message}}</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"><i class="zmdi zmdi-close"></i></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

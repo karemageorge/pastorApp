@@ -1,13 +1,13 @@
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button" (click)="toggleSmallMenu()"><i class="zmdi zmdi-menu"></i></button>
-        <a href="index.html"><img src="assets/images/logo.svg" width="25" alt="Aero"><span class="m-l-10">Aero</span></a>
+        <a href="index.html"><img src="assets/images/sikikalogo.jpeg" width="25" alt="Sikika"><span class="m-l-10">Sikika</span></a>
     </div>
     <div class="menu">
         <ul class="list">
             <li>
                 <div class="user-info">
-                    <a class="image waves-effect waves-block" ><img src="assets/images/profile_av.jpg" alt="User"></a>
+                    <a class="image waves-effect waves-block" ><img src="assets/images/george.jpeg" alt="User"></a>
                     <div class="detail">
                         <h4>George</h4>
                         <small>Pastor</small>                        
@@ -15,29 +15,37 @@
                 </div>
             </li>
 
-            <li class="active open"><a  class="toggled waves-effect waves-block"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
-            <li><a  class=" waves-effect waves-block"><i class="zmdi zmdi-account"></i><span>My Profile</span></a></li>
+            <li><a class="menu-toggle waves-effect waves-block" [ngClass]="{'toggled':activeMenu == 'devotional'}" (click)="openItem('devotional')"><i class="zmdi zmdi-home"></i><span>Devotionals</span></a></li>
+                <ul class="ml-menu" [ngClass]="{'d-block':activeMenu == 'devotional'}">
+                    <li><a  routerLink="/admin/dashboard/index" class=" waves-effect waves-block">DevotionalUnits</a></li>
+                    <li><a  routerLink="/admin/dashboard/members/transactions" class=" waves-effect waves-block">TransactionDetails</a></li>
+                    <li><a  routerLink="/admin/dashboard/members/subscriptions" class=" waves-effect waves-block">SubscriptionDetails</a></li>
+                    <li><a  routerLink="/admin/dashboard/sms/send" class=" waves-effect waves-block">Send Devotionals</a></li> 
+                    <li><a  routerLink="/admin/dashboard/sms/schedule" class=" waves-effect waves-block">ScheduleDevotionals</a></li>                   
+                </ul>
 
-            <li><a href="javascript:void(0);" class="menu-toggle waves-effect waves-block" [ngClass]="{'toggled':activeMenu == 'apps'}" (click)="openItem('apps')"><i class="zmdi zmdi-apps"></i><span>Members</span></a>
+            <li><a class="menu-toggle waves-effect waves-block" [ngClass]="{'toggled':activeMenu == 'apps'}" (click)="openItem('apps')"><i class="zmdi zmdi-apps"></i><span>Members</span></a>
                 <ul class="ml-menu" [ngClass]="{'d-block':activeMenu == 'apps'}">
                     <li><a  routerLink="/admin/dashboard/members/register" class=" waves-effect waves-block">Register</a></li>
                     <li><a  routerLink="/admin/dashboard/members/upload"class=" waves-effect waves-block">Upload</a></li>
-                    <li><a  routerLink="/admin/dashboard/members/group" class=" waves-effect waves-block">Group</a></li>
+                    <!-- <li><a  routerLink="/admin/dashboard/members/group" class=" waves-effect waves-block">Group</a></li>  -->
                     <li><a  routerLink="/admin/dashboard/members/view" class=" waves-effect waves-block">View</a></li>                    
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block" [ngClass]="{'toggled':activeMenu == 'projects'}" (click)="openItem('projects')"><i class="zmdi zmdi-assignment"></i><span>Groups</span></a>
+            <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block" [ngClass]="{'toggled':activeMenu == 'projects'}" (click)="openItem('projects')"><i class="zmdi zmdi-assignment"></i><span>Church Comm</span></a>
                 <ul class="ml-menu" [ngClass]="{'d-block':activeMenu == 'projects'}">
-                    <li><a routerLink="/admin/dashboard/groups/register" class=" waves-effect waves-block">Register</a></li>
+                    <li><a routerLink="/admin/dashboard/groups/register" class=" waves-effect waves-block">Register Group</a></li>
                     <li><a routerLink="/admin/dashboard/groups/view" class=" waves-effect waves-block">Group List</a></li>
+                    <li><a routerLink="/admin/dashboard/sms/send" class=" waves-effect waves-block">Send Sms</a></li>
+                    <li><a routerLink="/admin/dashboard/sms/view" class=" waves-effect waves-block">Sms List</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block" [ngClass]="{'toggled':activeMenu == 'fileManager'}" (click)="openItem('fileManager')"><i class="zmdi zmdi-folder"></i><span>Sms</span></a>
+            <!-- <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block" [ngClass]="{'toggled':activeMenu == 'fileManager'}" (click)="openItem('fileManager')"><i class="zmdi zmdi-folder"></i><span>Sms</span></a>
                 <ul class="ml-menu" [ngClass]="{'d-block':activeMenu == 'fileManager'}">
                     <li><a routerLink="/admin/dashboard/sms/send" class=" waves-effect waves-block">Send</a></li>
                     <li><a routerLink="/admin/dashboard/sms/view" class=" waves-effect waves-block">Sms List</a></li>
                 </ul>
-            </li>
+            </li> -->
             <!-- <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block" [ngClass]="{'toggled':activeMenu == 'blog'}" (click)="openItem('blog')"><i class="zmdi zmdi-blogger"></i><span>Blog</span></a>
                 <ul class="ml-menu" [ngClass]="{'d-block':activeMenu == 'blog'}">
                     <li><a href="blog-dashboard.html" class=" waves-effect waves-block">Dashboard</a></li>
